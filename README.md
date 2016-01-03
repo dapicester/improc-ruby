@@ -20,7 +20,32 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Here is a list of the provided classes and their usage.
+Refer to the test for more usage details.
+
+### OpenCV Detector
+
+A wrapper around OpenCV feature detectors and descriptors.
+
+```ruby
+detector = Improc::Detector.new 'path/to/image.jpg'
+keypoints, descriptors = detector.process :orb
+```
+
+Currently only ORB is supported.
+
+### OpenCV Storage
+
+A wrapper around OpenCV storage facility.
+
+```ruby
+file = '/path/to/image.yml.gz'
+storage = Improc::Storage.new file
+# store to file
+storage.store keypoints, descriptors
+# load from file
+kp, des = storage.load
+```
 
 ## Development
 
