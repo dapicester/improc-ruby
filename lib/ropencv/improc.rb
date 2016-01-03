@@ -32,7 +32,7 @@ module OpenCV
 
     class FileNode
       def >>(dest)
-        type = dest.class.name.split("::").last.downcase
+        type = dest.class.name.split('::').last.downcase
         send "read_#{type}", dest
       end
 
