@@ -1,11 +1,12 @@
 require 'test_helper'
 
 class ImprocTest < Minitest::Test
-  def test_that_it_has_a_version_number
+  def test_version_number
     refute_nil ::Improc::VERSION
   end
 
-  def test_it_does_something_useful
-    assert false
+  def test_loads_ropencv_additions
+    assert ::OpenCV::Cv::FileStorage.respond_to? :with
+    assert ::OpenCV::Cv::FileNode.new.respond_to? :>>
   end
 end
