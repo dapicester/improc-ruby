@@ -22,8 +22,7 @@ class Improc::StorageTest < Minitest::Test
     assert File.exist? @path
 
     lkp, ldes = @storage.load
-    assert_equal kp.size, lkp.size
-    assert_equal des.size.width, ldes.size.width
-    assert_equal des.size.height, ldes.size.height
+    assert_equal kp, lkp
+    assert_equal des, ldes
   end
 end

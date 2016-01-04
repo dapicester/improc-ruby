@@ -1,7 +1,28 @@
 require 'ropencv'
 
 module OpenCV
+  module Std
+    class Vector
+      class Cv_KeyPoint
+        def ==(other)
+          return false unless size == other.size
+          zip(other).each { |l, r| break false unless l == r} && true
+        end
+      end
+    end
+  end
+
   module Cv
+    class KeyPoint
+      def ==(other)
+        (pt.x == other.pt.x && pt.y == other.pt.y) &&
+          size == other.size && angle == other.angle &&
+          response == other.response &&
+          octave == other.octave &&
+          class_id == other.class_id
+      end
+    end
+
     class FileStorage
       def self.with(name, mode)
         fs = new name, mode
