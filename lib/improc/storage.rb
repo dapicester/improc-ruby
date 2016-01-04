@@ -19,6 +19,7 @@ class Improc::Storage
   end
 
   def load
+    return false unless File.exists? @path
     keypoints = Vector.new cv::KeyPoint
     descriptors = cv::Mat.new
     cv::FileStorage.with(@path, cv::FileStorage::READ) do |fs|

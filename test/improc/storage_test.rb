@@ -16,6 +16,11 @@ class Improc::StorageTest < Minitest::Test
     File.delete @path if File.exists? @path
   end
 
+  def test_file_not_exists
+    @storage = Improc::Storage.new 'foobar'
+    refute @storage.load
+  end
+
   def test_storage
     kp, des = Improc::Detector.new(Fixtures::WINE).process
     @storage.store kp, des
