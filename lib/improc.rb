@@ -6,4 +6,5 @@ module Improc
 end
 
 require 'improc/detector'
+require 'improc/matcher'
 require 'improc/storage'
