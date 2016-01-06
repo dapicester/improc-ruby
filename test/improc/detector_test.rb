@@ -22,5 +22,4 @@ class Improc::DetectorTest < Minitest::Test
     assert des.is_a? OpenCV::Cv::Mat
     assert_equal kp.size, des.size.height
   end
-
 end
